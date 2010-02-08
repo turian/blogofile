@@ -57,7 +57,7 @@ def blog_path_helper(*parts):
     for p in parts:
         if hasattr(p,"__iter__"):
             #This part is a sequence itself, recurse into it
-            p = path_join(*p, sep="/")
+            p = path_join(*p, **{"sep": "/"})
         if p in ("","\\","/"):
             continue
         new_parts.append(p)
